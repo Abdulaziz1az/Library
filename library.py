@@ -1,5 +1,5 @@
 from datetime import datetime, timedelta
-class library:
+class libraryItem:
     def __init__(self, title, author):
         self.title = title
         self.author = author
@@ -24,4 +24,24 @@ class library:
     def display_info(self):
         status = "Availabel" if not self.is_borrowed else f"Borrowed, Due: {self.due_date.strftime('%Y-%m-%d')}"
         print(f"Title: {self.title}, Author: {self.author}, Status: {status}")
-            
+    
+# Book 
+class Book(libraryItem):
+    def __init__(self, title, author, genre):
+        super().__init__(title, author) 
+        self.genre = genre
+        
+    def display_info(self): #
+        super().display_info()
+        print(f'Genre: {self.genre}')
+        
+# Magazin
+class Magazine(libraryItem):
+    def __init__(self, title, author, issue_number):
+        super().__init__(title, author)
+        self.issue_number = issue_number
+        
+    def display_info(self):
+        super().display_info()
+        print(f'Issue Number: {self.issue_number}')
+        
